@@ -1,12 +1,10 @@
-import { Ballot__factory } from "./../typechain-types/factories/Ballot__factory";
+import { Ballot__factory } from "../typechain-types/factories/Ballot__factory";
 import "@nomiclabs/hardhat-ethers";
-import { Ballot } from "./../typechain-types/Ballot";
 import { ethers } from "hardhat";
-import hre from "hardhat";
 import * as dotenv from "dotenv";
 dotenv.config();
 
-const deployeContract = async () => {
+const deployContract = async () => {
   const INFURA_API_KEY = process.env.INFURA_API_KEY;
   const SECRET_PHRASE = process.env.SECRET_PHRASE || "";
   const p1 = process.env.PROPOSAL_1 || "";
@@ -29,7 +27,7 @@ const deployeContract = async () => {
   }
 };
 
-deployeContract().catch((error) => {
+deployContract().catch((error) => {
   console.error(error);
   process.exitCode = 1;
 });
